@@ -19,13 +19,16 @@ pas dans la base de donnée
 ```
 
 ## A venir
+=======
+# DAO JAVA
+
+# A propos
 ```
-Stabilité globale du système de gestion
-Ajout complet du CRUD
-Refacto. de la BDD
+Gestionnaire de stagiaire en JAVA
 ```
 
-## De
+# Utilisation
 ```
-T. Chenier @ 2017
+Importez le fichier SQL
+lancez l'application
 ```
