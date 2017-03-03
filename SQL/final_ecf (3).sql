@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 01 Mars 2017 à 13:26
+-- Généré le :  Ven 03 Mars 2017 à 11:54
 -- Version du serveur :  5.7.17-0ubuntu0.16.04.1
--- Version de PHP :  7.0.15-0ubuntu0.16.04.2
+-- Version de PHP :  7.0.15-0ubuntu0.16.04.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -78,15 +78,14 @@ CREATE TABLE `boat` (
 --
 
 INSERT INTO `boat` (`user_boat_id`, `boat_user_id`, `user_boat_class`, `user_boat_type_id`, `user_boat_name`) VALUES
-(3, 1, 15, 1, 'le toto\r\n'),
-(4, 2, 17, 2, 'Bateau de test'),
-(5, 2, 15, 1, 'test'),
-(10, 2, 17, 1, 'ddd'),
-(11, 2, 17, 1, 'ddd'),
-(12, 2, 14, 1, 'le toto'),
-(13, 2, 18, 1, 'dddd'),
-(14, 2, 19, 1, 'ddddddddee'),
-(15, 2, 19, 1, 'abc');
+(48, 2, 19, 1, 'aaaaaaaaaaaa'),
+(49, 2, 19, 1, 'bbbbbbbbb'),
+(50, 2, 19, 1, 'ccccccc'),
+(51, 2, 19, 1, 'dddddddd'),
+(52, 2, 19, 1, 'ffefde'),
+(53, 2, 19, 1, 'ffefde'),
+(54, 2, 19, 1, 'ffefde'),
+(55, 2, 19, 1, 'ffefde');
 
 -- --------------------------------------------------------
 
@@ -226,6 +225,13 @@ CREATE TABLE `crew` (
   `crew_regate_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `crew`
+--
+
+INSERT INTO `crew` (`crew_id`, `crew_uid`, `crew_boat_id`, `crew_regate_id`) VALUES
+(1, 2, 48, 28);
+
 -- --------------------------------------------------------
 
 --
@@ -271,30 +277,23 @@ CREATE TABLE `participates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Contenu de la table `participates`
+--
+
+INSERT INTO `participates` (`par_id`, `par_crew_id`, `par_regate_id`, `par_position`) VALUES
+(4, 1, 28, 12),
+(5, 1, 28, 2);
+
+--
 -- Déclencheurs `participates`
 --
-DELIMITER $$
-CREATE TRIGGER `checkinsert_position` BEFORE INSERT ON `participates` FOR EACH ROW BEGIN
-		DECLARE nb_place CONDITION FOR SQLSTATE '45001';
-        SELECT ch_nbmax_participant FROM challenge
-        INNER JOIN regate
-        WHERE regate.re_id = new.par_regate_id
-		INTO @max_participant;
-		if (new.par_position > @max_participant) 
-        then
-		SIGNAL nb_place
-		SET MESSAGE_TEXT = 'La place du participant est supérieur au nombre total de participant !', 
-        MYSQL_ERRNO = 9002;
-		end if;
-	END
-$$
-DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `checkupdate_position` BEFORE UPDATE ON `participates` FOR EACH ROW BEGIN
 		DECLARE nb_place CONDITION FOR SQLSTATE '45001';
         SELECT ch_nbmax_participant FROM challenge
         INNER JOIN regate
-        WHERE regate.re_id = new.par_regate_id
+        ON regate.re_id = new.par_regate_id
+        AND regate.re_challenge_id = challenge.ch_id
 		INTO @max_participant;
 		if (new.par_position > @max_participant) 
         then
@@ -473,7 +472,15 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `user_name`, `user_surname`, `user_phone`, `user_email`, `age`) VALUES
 (1, 'Jean', 'Jacques', 123456789, 'jj@lpdel.com', 0),
 (2, 'Patrick', 'toto', 123456789, 'poldep@ldepld.com', 0),
-(3, 'Jean', 'Michel', 123456789, 'ldpeld@ldeld.com', 92);
+(3, 'Jean', 'Michel', 123456789, 'ldpeld@ldeld.com', 92),
+(4, 'toto', 'titi', 132456789, 'lpdel@odekd.com', 22),
+(19, 'Jacques', 'Jean', 123456, 'dede@ded.com', 55),
+(20, 'Jacques', 'Jean', 123456, 'dede@ded.com', 55),
+(21, 'Jacques', 'Jean', 123456, 'dede@ded.com', 55),
+(22, 'Jacques', 'Jean', 123456, 'dede@ded.com', 55),
+(31, 'ded', 'ded', 123132, 'de', 12),
+(32, 'ded', 'ded', 123132, 'de', 12),
+(33, 'ded', 'ded', 123132, 'de', 12);
 
 -- --------------------------------------------------------
 
@@ -666,7 +673,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT pour la table `boat`
 --
 ALTER TABLE `boat`
-  MODIFY `user_boat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_boat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT pour la table `boat_type`
 --
@@ -701,7 +708,7 @@ ALTER TABLE `committee`
 -- AUTO_INCREMENT pour la table `crew`
 --
 ALTER TABLE `crew`
-  MODIFY `crew_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `crew_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `federation`
 --
@@ -716,7 +723,7 @@ ALTER TABLE `licencie`
 -- AUTO_INCREMENT pour la table `participates`
 --
 ALTER TABLE `participates`
-  MODIFY `par_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `par_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `regate`
 --
@@ -751,7 +758,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT pour la table `user_club`
 --
