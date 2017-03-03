@@ -186,39 +186,39 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel30" min="-2" pref="165" max="-2" attributes="0"/>
-                                          <Component id="jLabelClass" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel30" min="-2" pref="165" max="-2" attributes="0"/>
+                                              <Component id="jLabelClass" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jCBSerie" linkSize="1" min="-2" pref="290" max="-2" attributes="0"/>
+                                              <Component id="jCBClass" linkSize="1" min="-2" pref="290" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCBSerie" linkSize="1" min="-2" pref="290" max="-2" attributes="0"/>
-                                          <Component id="jCBClass" linkSize="1" min="-2" pref="290" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="JBCreaBateau" alignment="1" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jButtonAddProprio" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="JLError" min="-2" pref="155" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                       <Component id="jLabel34" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jCBProprio" linkSize="1" min="-2" pref="290" max="-2" attributes="0"/>
+                                                      <Component id="jCBProprio" linkSize="1" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
                                                       <Component id="jTFNomBateau" linkSize="1" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="JLError" alignment="1" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jButtonAddProprio" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="JBCreaBateau" alignment="1" min="-2" pref="486" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jPanel8" max="32767" attributes="0"/>
@@ -249,11 +249,11 @@
                                           <Component id="jCBProprio" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTFNomBateau" max="32767" attributes="0"/>
-                                          <Component id="jLabel34" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel34" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <Component id="jTFNomBateau" alignment="3" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Component id="JBCreaBateau" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jButtonAddProprio" min="-2" max="-2" attributes="0"/>
@@ -262,7 +262,7 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="55" max="32767" attributes="0"/>
+                              <EmptySpace pref="56" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -410,7 +410,7 @@
                     <Component class="javax.swing.JLabel" name="JLError">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Dialog" size="36" style="1"/>
+                          <Font name="Dialog" size="24" style="1"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Erreur"/>

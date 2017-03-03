@@ -10,7 +10,7 @@ public class ConnectDB
 {
     final	static	String	URL 		= "jdbc:mysql://localhost/final_ecf?noAccessToProcedureBodies=true";
     final 	static	String	IDBDD		= "root";
-    final	static	String	PASSBDD		= "poubelle";
+    final	static	String	PASSBDD		= "";
 
 	/* PARAMETRES DE CONNECTION A LA BDD */
 	private static	Connection connect 	= null;
